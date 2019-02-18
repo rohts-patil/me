@@ -2,7 +2,7 @@
 layout: post
 title: "Consistent Hashing Simplified"
 date: 2018-02-14
-excerpt: "Examples and code for displaying images in posts."
+excerpt: "Need and use of consistent hashing."
 tags: [consistent hashing, caching, distributed system]
 comments: true
 ---
@@ -37,7 +37,7 @@ The situation assuming that the key data is uniformly distributed is shown in th
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/original%20server.JPG?raw=true">
-	<figcaption><a>Sharding data across 4 servers</a>.</figcaption>
+	<figcaption><center>Sharding data across 4 servers</center>.</figcaption>
 </figure>
 
 Problem solved, right? Not quite — there are two major drawbacks with this approach, namely, Horizontal Scalability and Non-Uniform data distribution across servers.
@@ -49,14 +49,14 @@ Let us see what happens when we add another server (server4) to the original poo
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/adde%20new%20server.JPG?raw=true">
-	<figcaption><a>Effect of adding a new server to the cluster and the redistribution of the keys</a>.</figcaption>
+	<figcaption><center>Effect of adding a new server to the cluster and the redistribution of the keys.</center></figcaption>
 </figure>
 
 The effect is more severe when a server goes down as shown below. In this case, we’ll need to update ALL servers.
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/delete%20server.JPG?raw=true">
-	<figcaption><a>Effect of removing a server from the cluster and the redistribution of the keys</a>.</figcaption>
+	<figcaption><center>Effect of removing a server from the cluster and the redistribution of the keys.</center></figcaption>
 </figure>
 
 #### Data Distribution — Avoiding “Data Hot Spots” in Cluster:-
@@ -73,21 +73,21 @@ Consistent Hashing is a distributed hashing scheme that operates independently o
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/horizontal%20hash.JPG?raw=true">
-	<figcaption><a>Linear Hash Key Space</a>.</figcaption>
+	<figcaption><center>Linear Hash Key Space.</center></figcaption>
 </figure>
 
  2. Representing the hash space as a Ring: Imagine that these integers generated after hashing are placed on a ring such that the last value wraps around and forms a cycle.
 
  <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/circular%20hash.JPG?raw=true">
-	<figcaption><a>Circular Hash Key Space</a>.</figcaption>
+	<figcaption><center>Circular Hash Key Space.</center></figcaption>
 </figure>
 
 3.  Placing servers on the HashRing: We’re given a list of servers to start with. Using the hash function, we map each server to a specific place on the ring. This simulates placing the four servers into a different place on the ring as shown below.
 
  <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/servers%20on%20hashring.JPG?raw=true">
-	<figcaption><a>Placing servers on a hash ring</a>.</figcaption>
+	<figcaption><center>Placing servers on a hash ring.</center></figcaption>
 </figure>
 
 4. Determining Placement of Keys on Servers: To find which server an incoming key resides on, we do the following:
@@ -101,21 +101,21 @@ Example: Assume we have 4 incoming keys: key0, key1, key2, key3 and none of them
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/keys%20on%20hashring.JPG?raw=true">
-	<figcaption><a>Key placements on servers in a hash ring</a>.</figcaption>
+	<figcaption><center>Key placements on servers in a hash ring.</center></figcaption>
 </figure>
 
 5. Adding a server to the Ring: If we add another server to the hash Ring, server 4, we’ll need to remap the keys. However, only the keys that reside between server 3 and server 0 needs to be remapped to server 4. On average, we’ll need to remap only k/n keys, where k is the number of keys and n is the number of servers. In modulo based approach we needed to remap nearly all the keys.<br>The figure below shows the effect of inserting a new server4. As server 4 is between key3 and server4, key3 will be remapped from server0 to server4.
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/adding%20new%20server%20on%20hashring.JPG?raw=true">
-	<figcaption><a>Effect of adding a server to the hash ring</a>.</figcaption>
+	<figcaption><center>Effect of adding a server to the hash ring.</center></figcaption>
 </figure>
 
 6. Removing a server from the ring: A server might go down and consistent hashing scheme ensures that it has minimal effect on the number of keys and servers affected. <br>As we can see in the figure below, if server0 goes down, only the keys in between server3 and server 0 will need to be remapped to server 1. The rest of the keys are unaffected.
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/delete%20server%20hashring.jpg?raw=true">
-	<figcaption><a>Effect of removing a server from the hash ring</a>.</figcaption>
+	<figcaption><center>Effect of removing a server from the hash ring</center>.</figcaption>
 </figure>
 
 Hence we can say that consistent hashing successfully solves the horizontal scalability problem by ensuring that every time we scale up or down, we do not have to redistribute all the keys.
@@ -132,7 +132,7 @@ The factor by which to increase the number of labels (server keys), known as wei
 
 <figure>
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/multiserver%20on%20hashring.JPG?raw=true">
-	<figcaption><a>Using virtual nodes/ replication to create a better key distribution in a hash ring</a>.</figcaption>
+	<figcaption><center>Using virtual nodes/ replication to create a better key distribution in a hash ring.</center></figcaption>
 </figure>
 
 Now imagine server0 is removed. To account for this, we must remove labels server00…server03 from the circle. This results in the object keys formerly adjacent to the deleted labels now being randomly labeled server 3x and sever1x, reassigning them to server3 and server1.
