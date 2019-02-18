@@ -40,7 +40,7 @@ The situation assuming that the key data is uniformly distributed is shown in th
 #### One Up
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/original%20server.JPG"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/original%20server.JPG?raw=true"></a>
 	<figcaption><a>Sharding data across 4 servers</a>.</figcaption>
 </figure>
 
