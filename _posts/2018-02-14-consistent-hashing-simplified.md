@@ -40,11 +40,18 @@ The situation assuming that the key data is uniformly distributed is shown in th
 #### One Up
 
 <figure>
-	<img src="http://farm9.staticflickr.com/8426/7758832526_cc8f681e48_c.jpg"></a>
-	<figcaption><a>Morning Fog Emerging From Trees by A Guy Taking Pictures, on Flickr</a>.</figcaption>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/original%20server.JPG"></a>
+	<figcaption><a>Sharding data across 4 servers</a>.</figcaption>
 </figure>
 
-Vero laborum commodo occupy. Semiotics voluptate mumblecore pug. Cosby sweater ullamco quinoa ennui assumenda, sapiente occupy delectus lo-fi. Ea fashion axe Marfa cillum aliquip. Retro Bushwick keytar cliche. Before they sold out sustainable gastropub Marfa readymade, ethical Williamsburg skateboard brunch qui consectetur gentrify semiotics. Mustache cillum irony, fingerstache magna pour-over keffiyeh tousled selfies.
+Problem solved, right? Not quite — there are two major drawbacks with this approach, namely, Horizontal Scalability and Non-Uniform data distribution across servers.
+
+#### Horizontal Scalability:-
+The above scheme is not horizontally scalable. If we add or remove servers from the set, all our existing mappings are broken. This is because the value of “n” in our function that calculates the serverIndex changes. The result is that all existing data needs to be remapped and migrated to different servers. This might be a humungous task.
+
+Let us see what happens when we add another server (server4) to the original pool of server. Notice that we’ll need to update 3 out of the original 4 servers which mean 75% of servers need to be updated.
+
+
 
 #### Two Up
 
