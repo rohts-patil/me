@@ -62,7 +62,7 @@ The effect is more severe when a server goes down as shown below. In this case, 
 #### Data Distribution — Avoiding “Data Hot Spots” in Cluster:-
 We cannot expect a uniform distribution of data coming in all the time. There may be many more keys whose hashValue maps to server number 1 than any other servers, in which case server number 1 will become a hotspot for keys.
 
-> Consistent hashing allows up to solve both these problems.
+*Consistent hashing allows up to solve both these problems.*
 
 #### What exactly is Consistent Hashing?
 So, how can this problem be solved? We need a distribution scheme that does not depend directly on the number of servers, so that, when adding or removing servers, the number of keys that need to be relocated is minimized. Consistent hashing facilitates the distribution of data across a set of nodes in such a way that minimizes the re-mapping/ reorganization of data when nodes are added or removed. Here’s how it works:
