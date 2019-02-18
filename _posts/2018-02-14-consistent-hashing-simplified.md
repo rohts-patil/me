@@ -1,13 +1,39 @@
 ---
 layout: post
-title: "A Post with Images"
-date: 2013-05-22
+title: "Consistent Hashing Simplified"
+date: 2018-02-14
 excerpt: "Examples and code for displaying images in posts."
-tags: [sample post, images, test]
+tags: [consistent hashing, caching, distributed system]
 comments: true
 ---
 
-Here are some examples of what a post with images might look like. If you want to display two or three images next to each other responsively use `figure` with the appropriate `class`. Each instance of `figure` is auto-numbered and displayed in the caption.
+#### Distributed system problem:-
+We want to dynamically add/remove cache servers based on usage load.
+
+As these are cache servers, we have a set of keys and values. This could be Memcached, Redis, Hazelcast, Ignite, etc.
+
+Such setups consist of a pool of caching servers that host many key/value pairs and are used to provide fast access to data originally stored (or computed) elsewhere. For example, to reduce the load on a database server and at the same time improve performance, an application can be designed to first fetch data from the cache servers, and only if it’s not present there — a situation known as cache miss — resort to the database, running the relevant query and caching the results with an appropriate key, so that it can be found next time it’s needed. We want to distribute the keys across the servers so that we can find them again.
+
+Our goal is to design a system such that:
+
+1. We should be able to distribute the keys uniformly among the set of “n” servers.
+2. We should be able to dynamically add or remove a server.
+3. When we add/remove a server, we need to move the minimal amount of data between the servers.
+
+Here is the simplest approach:-
+1. Generate a hash of the key from the incoming data. For example, in python, we would use the hash function.<br>
+`hashValue = hash(key)`
+2. Find out the server to send the data to by taking the modulo of the hashValue using the number of current servers(n):<br>
+`serverIndex = hashValue % n`
+
+Now consider the following scenario:-
+
+* Imagine we have 4 servers
+* Imagine our hash function returns a value from 0 to 7
+* We’ll assume that “key0” when passed through our hash function, generates a hash value or 0, “key1” generates 1 and so on.
+* The serverIndex for “key0” is 0, “key1” is 1 and so on.
+
+The situation assuming that the key data is uniformly distributed is shown in the image below. We receive 8 pieces of data and our hashing algorithm distributes it evenly across our four database servers.
 
 ### Figures (for images or video)
 
