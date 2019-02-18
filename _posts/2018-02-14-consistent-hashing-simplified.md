@@ -36,7 +36,7 @@ Now consider the following scenario:-
 The situation assuming that the key data is uniformly distributed is shown in the image below. We receive 8 pieces of data and our hashing algorithm distributes it evenly across our four database servers.
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/original%20server.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/original%20server.JPG?raw=true">
 	<figcaption><a>Sharding data across 4 servers</a>.</figcaption>
 </figure>
 
@@ -48,14 +48,14 @@ The above scheme is not horizontally scalable. If we add or remove servers from 
 Let us see what happens when we add another server (server4) to the original pool of server. Notice that we’ll need to update 3 out of the original 4 servers which mean 75% of servers need to be updated.
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/adde%20new%20server.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/adde%20new%20server.JPG?raw=true">
 	<figcaption><a>Effect of adding a new server to the cluster and the redistribution of the keys</a>.</figcaption>
 </figure>
 
 The effect is more severe when a server goes down as shown below. In this case, we’ll need to update ALL servers.
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/delete%20server.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/delete%20server.JPG?raw=true">
 	<figcaption><a>Effect of removing a server from the cluster and the redistribution of the keys</a>.</figcaption>
 </figure>
 
@@ -72,21 +72,21 @@ Consistent Hashing is a distributed hashing scheme that operates independently o
 1. Creating the Hash Key Space: Consider we have a hash function that generates hash values in the range [0,2³²-1). We can represent this as an array of integers with 2³² -1 slot. We’ll call the first slot x0 and the last slot x^n — 1.
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/horizontal%20hash.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/horizontal%20hash.JPG?raw=true">
 	<figcaption><a>Linear Hash Key Space</a>.</figcaption>
 </figure>
 
  2. Representing the hash space as a Ring: Imagine that these integers generated after hashing are placed on a ring such that the last value wraps around and forms a cycle.
 
  <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/circular%20hash.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/circular%20hash.JPG?raw=true">
 	<figcaption><a>Circular Hash Key Space</a>.</figcaption>
 </figure>
 
 3.  Placing servers on the HashRing: We’re given a list of servers to start with. Using the hash function, we map each server to a specific place on the ring. This simulates placing the four servers into a different place on the ring as shown below.
 
  <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/servers%20on%20hashring.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/servers%20on%20hashring.JPG?raw=true">
 	<figcaption><a>Placing servers on a hash ring</a>.</figcaption>
 </figure>
 
@@ -100,21 +100,21 @@ Consistent Hashing is a distributed hashing scheme that operates independently o
 Example: Assume we have 4 incoming keys: key0, key1, key2, key3 and none of them directly maps to the hash value of any of the 4 servers on our hash ring. So we travel clockwise from the point these keys maps to in our ring till we find the first server and insert the key there. This is shown below diagram.
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/keys%20on%20hashring.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/keys%20on%20hashring.JPG?raw=true">
 	<figcaption><a>Key placements on servers in a hash ring</a>.</figcaption>
 </figure>
 
 5. Adding a server to the Ring: If we add another server to the hash Ring, server 4, we’ll need to remap the keys. However, only the keys that reside between server 3 and server 0 needs to be remapped to server 4. On average, we’ll need to remap only k/n keys, where k is the number of keys and n is the number of servers. In modulo based approach we needed to remap nearly all the keys.<br>The figure below shows the effect of inserting a new server4. As server 4 is between key3 and server4, key3 will be remapped from server0 to server4.
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/adding%20new%20server%20on%20hashring.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/adding%20new%20server%20on%20hashring.JPG?raw=true">
 	<figcaption><a>Effect of adding a server to the hash ring</a>.</figcaption>
 </figure>
 
 6. Removing a server from the ring: A server might go down and consistent hashing scheme ensures that it has minimal effect on the number of keys and servers affected. <br>As we can see in the figure below, if server0 goes down, only the keys in between server3 and server 0 will need to be remapped to server 1. The rest of the keys are unaffected.
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/delete%20server%20hashring.jpg?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/delete%20server%20hashring.jpg?raw=true">
 	<figcaption><a>Effect of removing a server from the hash ring</a>.</figcaption>
 </figure>
 
@@ -131,7 +131,7 @@ As the number of replicas or virtual nodes in the hash ring increase, the key di
 The factor by which to increase the number of labels (server keys), known as weight, depends on the situation (and may even be different for each server) to adjust the probability of keys ending up on each. For example, if server0 were twice as powerful as the rest, it could be assigned twice as many labels, and as a result, it would end up holding twice as many objects (on average).
 
 <figure>
-	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/multiserver%20on%20hashring.JPG?raw=true"></a>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/consistent%20hashing/multiserver%20on%20hashring.JPG?raw=true">
 	<figcaption><a>Using virtual nodes/ replication to create a better key distribution in a hash ring</a>.</figcaption>
 </figure>
 
