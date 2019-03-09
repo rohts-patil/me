@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Consistent Hashing Simplified"
-date: 2018-02-14
+date: 2019-02-14
 excerpt: "Need and use of consistent hashing."
 tags: [consistent hashing, caching, distributed system]
 comments: true
