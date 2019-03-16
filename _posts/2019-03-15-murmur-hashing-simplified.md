@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Murmur Hashing Simplified"
-date: 2019-02-14
+date: 2019-03-15
 excerpt: "Basics of Murmur hashing."
 tags: [Murmur hashing, caching, distributed system]
 comments: true
