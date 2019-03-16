@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Consistent Hashing Simplified"
+title: "Murmur Hashing Simplified"
 date: 2019-02-14
-excerpt: "Need and use of consistent hashing."
-tags: [consistent hashing, caching, distributed system]
+excerpt: "Basics of Murmur hashing."
+tags: [Murmur hashing, caching, distributed system]
 comments: true
 ---
 
