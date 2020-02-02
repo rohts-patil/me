@@ -7,7 +7,7 @@ tags: [Regularization, Machine Learning]
 comments: true
 ---
 
-### Regularization:-
+## Regularization:-
 Regularization is a technique to discourage the complexity of the model. It does this by penalizing the loss function. This helps to solve the overfitting problem.
 
 Below is the OLS. As the degree of the input features increases the model becomes complex
@@ -20,7 +20,7 @@ Below is the OLS. As the degree of the input features increases the model become
 `Regularization works on assumption that smaller weights generate simpler model and thus helps avoid overfitting.`
 
 
-### L1 Regularization:-
+## L1 Regularization:-
 
 L1 Regularization is also referred as LASSO(Least absolute shrinkage and selection operator).
 
@@ -37,7 +37,7 @@ In L1 regularization we penalize the absolute value of the weights. L1 regulariz
 
 Lasso produces a model that is simple, interpretable and contains a subset of input features
 
-### L2 Regularization:-
+## L2 Regularization:-
 
 L2 Regularization is also reffered as Ridge Regularization.
 
@@ -52,4 +52,16 @@ L2 regularization forces the weights to be small but does not make them zero and
 
 L2 is not robust to outliers as square terms blows up the error differences of the outliers and the regularization term tries to fix it by penalizing the weights.
 
-Ridge regression performs better when all the input features influence the output and all with weights are of roughly equal size
+Ridge regression performs better when all the input features influence the output and all with weights are of roughly equal size.
+
+## Difference between L1 and L2 regularization:-
+
+| L1 Regularization | L2 Regularization |
+|:--------|:-------:|
+| L1 penalizes sum of absolute value of weights.   | L2 regularization penalizes sum of square weights.   |
+| L1 has a sparse solution.   | L2 has a non sparse solution.   |
+| L1 has multiple solutions.   | L2 has one solution.   |
+| L1 has built in feature selection.   | L2 has no feature selection.   |
+| L1 is robust to outliers.   | L2 is not robust to outliers.   |
+| L1 generates model that are simple and interpretable but cannot learn complex patterns.   | L2 gives better prediction when output variable is a function of all input features and L2 regularization is able to learn complex data patterns   |
+{: rules="groups"}
