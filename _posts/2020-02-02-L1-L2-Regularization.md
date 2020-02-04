@@ -3,7 +3,7 @@ layout: post
 title: "L1 and L2 Regularization"
 date: 2020-02-02
 excerpt: "What is L1 and L2 Regularization?"
-tags: [Regularization, Machine Learning]
+tags: [Regularization, Machine Learning, Loss Function]
 comments: true
 ---
 
