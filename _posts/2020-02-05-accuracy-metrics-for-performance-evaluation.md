@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Accuracy Metrics for Performance Evaluation of Machine Learning Models."
-date: 2020-02-02
+date: 2020-02-05
 excerpt: "Some of the common accuracy metrics for performance evaluation"
 tags: [Machine Learning]
 comments: true
