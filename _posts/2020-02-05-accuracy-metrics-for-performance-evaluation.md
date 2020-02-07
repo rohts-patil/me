@@ -15,3 +15,11 @@ comments: true
 	1. To make sure you are doing significantly better than trivial models.
 	2. To make sure the problem you are working on even has a useful target function.
 
+### Regularized Linear Model
+
+* Whatever facny model you are using(gradient boosting, neural network)
+	* always spend some time building a linear baseline model.
+* Build a regularized linear model
+* If your fancier model is not beating linear,
+	* perhaps something is wrong with your fancier model like hyperparameter settings, model architecture,etc or
+	* you do not have enough data to beat the simpler model.
