@@ -1,13 +1,10 @@
 ---
 layout: page
-title: About Me
-tags: [about, Jekyll, theme, moon]
+title: Rohit Patil
+tags: [Rohit Patil]
 date: 2019-02-19
 comments: false
 ---
-    
-## About Rohit Patil
-
 
 ### Education:-
 * ####  Bachelor of Engineering in Electronics and Telecommunication (2012 - 2016)
