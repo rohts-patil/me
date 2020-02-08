@@ -10,17 +10,17 @@ comments: false
 
 
 ### Education:-
-* ####  Bachelor of Engineering in Electronics and Telecommunication(2012 - 2016).
+* ####  Bachelor of Engineering in Electronics and Telecommunication (2012 - 2016)
     * Pune Institute of Computer Technology,University Of Pune.
 
 
 ### Experience:-
-* #### Software Developer at Triple Point Technology(2016 - Present).
+* #### Software Developer at Triple Point Technology (2016 - Present)
     * Developed full commercial software for commodity traders using Core Java, Spring and SQL database.
     * Mostly worked on designing complex Valuation algorithms, which help in calculating the profit and loss and helps traders to analyze risk and hedge accordingly.
     * Gathered dataset, preprocessed the data and built deep learning models for developing qualitative data analysis used for analyzing large customer feedback surveys.
 
-* #### Classroom and Forum Mentor,Project Reviewer at Udacity(2016 - Present).
+* #### Classroom and Forum Mentor,Project Reviewer at Udacity (2016 - Present)
     * Classroom and forum mentor and project reviewer for Self-Driving Car Nanodegree and Flying Car Nanodegree.
     * Beta Tester for Robotics Nanodegree and Flying Car Nanodegree.
     * Mentored 300+ international students for Deep Learning, Computer Vision and Robotics.
@@ -36,7 +36,10 @@ comments: false
 
 
 ### Projects:-
-* #### Programming a Real Life Self Driving Car:-
+
+* #### Building Valuation Engine
+    * Designed and built a scalable, high-performance, high- throughput valuation engine for valuation and end of the day process for commodity trading (Oil, Gas and Power). Used in memory distributed cache Hazelcast, Oracle, Core Java and Micro service architecture.
+* #### Programming a Real Life Self Driving Car
     * Wrote ROS nodes to implement core functionality of the autonomous vehicle system, including traffic light detection, control, and waypoint following! Tested the code using a simulator, and then ran it on Carla (Udacity’s Self Driving Car). Repo can be found here.
 * #### Semantic Segmentation
     * Labelled the pixels of a road in images using a Fully Convolutional Network (FCN). TensorFlow and encoder-decoder styled models was used. Encoder used was pretrained VGG model.
