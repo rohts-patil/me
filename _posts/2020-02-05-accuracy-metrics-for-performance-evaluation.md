@@ -23,3 +23,12 @@ comments: true
 * If your fancier model is not beating linear,
 	* perhaps something is wrong with your fancier model like hyperparameter settings, model architecture,etc or
 	* you do not have enough data to beat the simpler model.
+
+### Confusion Matrix
+
+* A confusion matrix summarizes results for a binary classification problem.
+
+<figure>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/accuracy-metrics/confusion-matrix.png?raw=true">
+	<figcaption><center>Confusion matrix for binary classification.</center></figcaption>
+</figure>
