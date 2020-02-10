@@ -32,3 +32,7 @@ comments: true
 	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/accuracy-metrics/confusion-matrix.png?raw=true">
 	<figcaption><center>Confusion matrix for binary classification.</center></figcaption>
 </figure>
+
+* Accuracy is the fraction of correct predictions
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=\frac{a&plus;d}{a&plus;b&plus;c&plus;d}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\frac{a&plus;d}{a&plus;b&plus;c&plus;d}" title="\frac{a+d}{a+b+c+d}" /></a>
