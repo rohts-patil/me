@@ -40,3 +40,9 @@ comments: true
 * `Error rate` is the fraction of incorrect predictions.
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\frac{b&plus;c}{a&plus;b&plus;c&plus;d}" target="_blank"><img src="https://latex.codecogs.com/svg.latex?\frac{b&plus;c}{a&plus;b&plus;c&plus;d}" title="\frac{b+c}{a+b+c+d}" /></a>
+
+* Let's denote the positive class by + and negative by -.
+
+<figure>
+	<img src="https://github.com/rohts-patil/me/blob/master/assets/img/accuracy-metrics/fp-np.png?raw=true">
+</figure>
