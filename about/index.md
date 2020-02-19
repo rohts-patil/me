@@ -29,7 +29,7 @@ comments: false
 
 ### Frameworks:-
 
-*   Keras, TensorFlow, PyTorch, Sklearn, Numpy, Pandas, Dask, Spark, Spring, OpenCV.
+*   Keras, TensorFlow, PyTorch, Sklearn, Numpy, Pandas, Dask, Spark, Spring, OpenCV, Spacy.
 
 
 ### Projects:-
