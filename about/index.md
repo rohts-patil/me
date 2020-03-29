@@ -25,7 +25,7 @@ comments: false
 
 ### Programming Skills:-
 
-*   Java, Python, Julia, C++.
+*   Java, Python, C++.
 
 ### Frameworks:-
 
