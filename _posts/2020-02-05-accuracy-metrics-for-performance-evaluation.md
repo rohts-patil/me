@@ -48,4 +48,7 @@ comments: true
 </figure>
 
 
-<iframe src="https://gist.github.com/rohts-patil/e540a7baaf05647e5935f980bc14866b.js"></iframe>
+
+
+{% gist e540a7baaf05647e5935f980bc14866b %}
+
