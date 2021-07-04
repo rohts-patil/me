@@ -36,7 +36,9 @@ comments: false
 
 
 ### Projects:-
-
+* #### Recharge and Bill Payment System
+    * Designed and built scalable and high throughput micro services based system used by millions of Indian users for bill payments and recharge. Used Core Java, Distributed Cache, Elastic Search and SQL based database.
+ 
 * #### Building Valuation Engine
     * Designed and built a scalable, high-performance, high- throughput valuation engine for valuation and end of the day process for commodity trading (Oil, Gas and Power). Used in memory distributed cache Hazelcast, Oracle, Core Java and Micro service architecture.
 * #### Programming a Real Life Self Driving Car
